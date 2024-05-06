@@ -86,23 +86,5 @@ lazy_map {
   { 'yW',       function() M.yank '"+yiW' end,         mode = { 'n', }, silent = true, desc = 'maps: "+yiW', },
 }
 
-lazy_map {
-  { '<leader>;',           ':',                   mode = { 'n', 'v', }, silent = false, desc = 'nmaps: cmdline', },
-  { '<leader><c-;>',       ':lua ',               mode = { 'n', 'v', }, silent = false, desc = 'nmaps: cmdline, lua', },
-  { 'Q',                   'q',                   mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: q', },
-  { 'q',                   '<cmd>WhichKey q<cr>', mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: <nop>', },
-  { 'U',                   '<c-r>',               mode = { 'n', },      silent = true,  desc = 'nmaps: redo', },
-  { '<S-ScrollWheelDown>', '10zl',                mode = { 'n', 'v', }, silent = false, desc = 'nmaps: scroll right horizontally', },
-  { '<S-ScrollWheelUp>',   '10zh',                mode = { 'n', 'v', }, silent = false, desc = 'nmaps: scroll left horizontally', },
-  { '<c-j>',               '5j',                  mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: 5j', },
-  { '<c-k>',               '5k',                  mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: 5k', },
-  { '<a-y>',               '"+y',                 mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: "+y', },
-  { '<a-d>',               '"+d',                 mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: "+d', },
-  { '<a-c>',               '"+c',                 mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: "+c', },
-  { '<a-p>',               '"+p',                 mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: "+p', },
-  { '<a-s-p>',             '"+P',                 mode = { 'n', 'v', }, silent = true,  desc = 'nmaps: "+P', },
-  { '<c-c>',               '"+y',                 mode = { 'v', },      silent = true,  desc = 'nmaps: "+y', },
-}
-
 -- 只保留第二列数据
 -- %s/[^,]\+,\([^,]*\),.*/\=submatch(1)
