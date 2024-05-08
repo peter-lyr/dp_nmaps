@@ -72,19 +72,16 @@ function M.yank(feedkeys)
 end
 
 lazy_map {
-  { 'vw',       function() M.yank 'viw' end,           mode = { 'n', }, silent = true, desc = 'maps: viw', },
-  { 'v<c-w>',   function() M.yank 'viW' end,           mode = { 'n', }, silent = true, desc = 'maps: viW', },
-  { 'yw',       function() M.yank 'yiw' end,           mode = { 'n', }, silent = true, desc = 'maps: yiw', },
-  { 'y<c-w>',   function() M.yank 'yiW' end,           mode = { 'n', }, silent = true, desc = 'maps: yiW', },
-  { 'qy',       function() M.yank 'qiy' end,           mode = { 'n', }, silent = true, desc = 'maps: qiy', },
-  { 'q<c-y>',   function() M.yank 'qiqiy' end,         mode = { 'n', }, silent = true, desc = 'maps: 2qiy', },
-  { 'qY',       function() M.yank 'qiqiqiy' end,       mode = { 'n', }, silent = true, desc = 'maps: 3qiy', },
-  { 'q<c-s-y>', function() M.yank 'qiqiqiqiy' end,     mode = { 'n', }, silent = true, desc = 'maps: 4qiy', },
-  { 'q<a-y>',   function() M.yank 'qiqiqiqiqiy' end,   mode = { 'n', }, silent = true, desc = 'maps: 5qiy', },
-  { 'q<a-s-y>', function() M.yank 'qiqiqiqiqiqiy' end, mode = { 'n', }, silent = true, desc = 'maps: 6qiy', },
-  { 'y<a-w>',   function() M.yank '"+yiw' end,         mode = { 'n', }, silent = true, desc = 'maps: "+yiw', },
-  { 'yW',       function() M.yank '"+yiW' end,         mode = { 'n', }, silent = true, desc = 'maps: "+yiW', },
+  { 'vw',                         function() M.yank 'viw' end,   desc = 'viw',   mode = { 'n', }, silent = true, },
+  { 'v<leader>w',                 function() M.yank 'viW' end,   desc = 'viW',   mode = { 'n', }, silent = true, },
+  { 'qy',                         function() M.yank 'qiy' end,   desc = 'qiy',   mode = { 'n', }, silent = true, },
+  { 'q<leader>y',                 function() M.yank 'qi"+y' end, desc = 'qiy',   mode = { 'n', }, silent = true, },
+  { 'yw',                         function() M.yank 'yiw' end,   desc = 'yiw',   mode = { 'n', }, silent = true, },
+  { 'y<leader>w',                 function() M.yank 'yiW' end,   desc = 'yiW',   mode = { 'n', }, silent = true, },
+  { 'y<leader><leader>w',         function() M.yank '"+yiw' end, desc = '"+yiw', mode = { 'n', }, silent = true, },
+  { 'y<leader><leader><leader>w', function() M.yank '"+yiW' end, desc = '"+yiW', mode = { 'n', }, silent = true, },
 }
 
 -- 只保留第二列数据
 -- %s/[^,]\+,\([^,]*\),.*/\=submatch(1)
+
