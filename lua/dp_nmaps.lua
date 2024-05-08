@@ -13,43 +13,22 @@ local function lazy_map(tbls)
 end
 
 lazy_map {
-  -- cmdline
-  { '<leader>;',           ':',                   mode = { 'n', 'v', }, silent = false, desc = 'my.maps: cmdline', },
-  { '<leader><c-;>',       ':lua ',               mode = { 'n', 'v', }, silent = false, desc = 'my.maps: cmdline, lua', },
-  -- record
-  { 'q',                   '<cmd>WhichKey q<cr>', mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: <nop>', },
-  { 'Q',                   'q',                   mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: q', },
-  -- cd
-  { 'c.',                  '<cmd>cd %:h<cr>',     mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: cd %:h', },
-  { 'cu',                  '<cmd>cd ..<cr>',      mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: cd ..', },
-  -- undo
-  { 'U',                   '<c-r>',               mode = { 'n', },      silent = true,  desc = 'my.maps: redo', },
-  -- scroll horizontally
-  { '<S-ScrollWheelDown>', '10zl',                mode = { 'n', 'v', }, silent = false, desc = 'my.maps: scroll right horizontally', },
-  { '<S-ScrollWheelUp>',   '10zh',                mode = { 'n', 'v', }, silent = false, desc = 'my.maps: scroll left horizontally', },
-  -- e!
-  { 'qq',                  '<cmd>e!<cr>',         mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: e!', },
-  -- cursor
-  { '<c-j>',               '5j',                  mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: 5j', },
-  { '<c-k>',               '5k',                  mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: 5k', },
-  -- copy_paste
-  { '<a-y>',               '"+y',                 mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: "+y', },
-  { '<a-d>',               '"+d',                 mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: "+d', },
-  { '<a-c>',               '"+c',                 mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: "+c', },
-  { '<a-p>',               '"+p',                 mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: "+p', },
-  { '<a-s-p>',             '"+P',                 mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: "+P', },
-  -- for youdao dict
-  { '<c-c>',               '"+y',                 mode = { 'v', },      silent = true,  desc = 'my.maps: "+y', },
-  -- tab
-  { '<c-f7>',              'gT',                  mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: gT', },
-  { '<c-f8>',              'gt',                  mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: gt', },
-  { '<c-f6>',              '<c-tab>',             mode = { 'n', 'v', }, silent = true,  desc = 'my.maps: <c-tab>', },
-}
-
-lazy_map {
-  { 'q.', function() vim.cmd 'silent !start "" "%:p:h"' end,                     mode = { 'n', 'v', }, silent = true, desc = 'my.maps: explorer %:h', },
-  { 'qw', function() vim.cmd('silent !start "" "' .. vim.loop.cwd() .. '"') end, mode = { 'n', 'v', }, silent = true, desc = 'my.maps: explorer cwd', },
-  { 'qs', function() vim.cmd 'silent !start "" "%:p"' end,                       mode = { 'n', 'v', }, silent = true, desc = 'my.maps: start %:h', },
+  { '<leader>;',           ':',               mode = { 'n', 'v', }, silent = false, desc = 'cmdline', },
+  { '<leader><c-;>',       ':lua ',           mode = { 'n', 'v', }, silent = false, desc = 'cmdline, lua', },
+  { 'Q',                   'q',               mode = { 'n', 'v', }, silent = true,  desc = 'q', },
+  { 'c.',                  '<cmd>cd %:h<cr>', mode = { 'n', 'v', }, silent = true,  desc = 'cd %:h', },
+  { 'cu',                  '<cmd>cd ..<cr>',  mode = { 'n', 'v', }, silent = true,  desc = 'cd ..', },
+  { 'U',                   '<c-r>',           mode = { 'n', },      silent = true,  desc = 'redo', },
+  { '<S-ScrollWheelDown>', '10zl',            mode = { 'n', 'v', }, silent = false, desc = 'scroll right horizontally', },
+  { '<S-ScrollWheelUp>',   '10zh',            mode = { 'n', 'v', }, silent = false, desc = 'scroll left horizontally', },
+  { '<c-j>',               '5j',              mode = { 'n', 'v', }, silent = true,  desc = '5j', },
+  { '<c-k>',               '5k',              mode = { 'n', 'v', }, silent = true,  desc = '5k', },
+  { '<a-y>',               '"+y',             mode = { 'n', 'v', }, silent = true,  desc = '"+y', },
+  { '<a-d>',               '"+d',             mode = { 'n', 'v', }, silent = true,  desc = '"+d', },
+  { '<a-c>',               '"+c',             mode = { 'n', 'v', }, silent = true,  desc = '"+c', },
+  { '<a-p>',               '"+p',             mode = { 'n', 'v', }, silent = true,  desc = '"+p', },
+  { '<a-s-p>',             '"+P',             mode = { 'n', 'v', }, silent = true,  desc = '"+P', },
+  { '<c-c>',               '"+y',             mode = { 'v', },      silent = true,  desc = '"+y', },
 }
 
 function M.yank(feedkeys)
@@ -72,10 +51,21 @@ function M.yank(feedkeys)
 end
 
 lazy_map {
+  { 'q',  '<cmd>WhichKey q<cr>',                                                 mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
+  { 'qq', '<cmd>e!<cr>',                                                         mode = { 'n', 'v', }, silent = true, desc = 'e!', },
+  { 'q.', function() vim.cmd 'silent !start "" "%:p:h"' end,                     mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
+  { 'qw', function() vim.cmd('silent !start "" "' .. vim.loop.cwd() .. '"') end, mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
+  { 'qs', function() vim.cmd 'silent !start "" "%:p"' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:h', },
+}
+
+lazy_map {
+  { 'qy',         function() M.yank 'qiy' end,   desc = 'qiy', mode = { 'n', }, silent = true, },
+  { 'q<leader>y', function() M.yank 'qi"+y' end, desc = 'qiy', mode = { 'n', }, silent = true, },
+}
+
+lazy_map {
   { 'vw',                         function() M.yank 'viw' end,   desc = 'viw',   mode = { 'n', }, silent = true, },
   { 'v<leader>w',                 function() M.yank 'viW' end,   desc = 'viW',   mode = { 'n', }, silent = true, },
-  { 'qy',                         function() M.yank 'qiy' end,   desc = 'qiy',   mode = { 'n', }, silent = true, },
-  { 'q<leader>y',                 function() M.yank 'qi"+y' end, desc = 'qiy',   mode = { 'n', }, silent = true, },
   { 'yw',                         function() M.yank 'yiw' end,   desc = 'yiw',   mode = { 'n', }, silent = true, },
   { 'y<leader>w',                 function() M.yank 'yiW' end,   desc = 'yiW',   mode = { 'n', }, silent = true, },
   { 'y<leader><leader>w',         function() M.yank '"+yiw' end, desc = '"+yiw', mode = { 'n', }, silent = true, },
@@ -84,4 +74,3 @@ lazy_map {
 
 -- 只保留第二列数据
 -- %s/[^,]\+,\([^,]*\),.*/\=submatch(1)
-
