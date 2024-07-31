@@ -53,8 +53,8 @@ end
 lazy_map {
   { 'q',  '<cmd>WhichKey q<cr>',                                                 mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
   { 'qq', '<cmd>e!<cr>',                                                         mode = { 'n', 'v', }, silent = true, desc = 'e!', },
-  { 'q.', function() vim.cmd 'silent !start "" "%:p:h"' end,                     mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
-  { 'qw', function() vim.cmd('silent !start "" "' .. vim.loop.cwd() .. '"') end, mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
+  { 'q.', function() vim.cmd 'silent !explorer "%:p:h"' end,                     mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
+  { 'qw', function() vim.cmd('silent !explorer "' .. vim.loop.cwd() .. '"') end, mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
   { 'qs', function() vim.cmd 'silent !start "" "%:p"' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:h', },
 }
 
