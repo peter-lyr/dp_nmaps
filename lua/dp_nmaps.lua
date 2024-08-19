@@ -51,25 +51,26 @@ function M.yank(feedkeys)
 end
 
 lazy_map {
-  { 'q',  '<cmd>WhichKey q<cr>',                                                 mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
-  { 'qq', '<cmd>e!<cr>',                                                         mode = { 'n', 'v', }, silent = true, desc = 'e!', },
-  { 'q.', function() vim.cmd 'silent !explorer "%:p:h"' end,                     mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
-  { 'qw', function() vim.cmd('silent !explorer "' .. vim.loop.cwd() .. '"') end, mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
-  { 'qs', function() vim.cmd 'silent !start "" "%:p"' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:h', },
+  -- { 'q',  '<cmd>WhichKey q<cr>',                                                 mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
+  { 'q',     '<nop>',                                                               mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
+  { '<cr>e', '<cmd>e!<cr>',                                                         mode = { 'n', 'v', }, silent = true, desc = 'e!', },
+  { '<cr>c', function() vim.cmd 'silent !explorer "%:p:h"' end,                     mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
+  { '<cr>w', function() vim.cmd('silent !explorer "' .. vim.loop.cwd() .. '"') end, mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
+  { '<cr>s', function() vim.cmd 'silent !start "" "%:p"' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:h', },
 }
 
-lazy_map {
-  { 'qy',         function() M.yank 'qiy' end,   desc = 'qiy', mode = { 'n', }, silent = true, },
-  { 'q<leader>y', function() M.yank 'qi"+y' end, desc = 'qiy', mode = { 'n', }, silent = true, },
-}
+-- lazy_map {
+--   { 'qy',         function() M.yank 'qiy' end,   desc = 'qiy', mode = { 'n', }, silent = true, },
+--   { 'q<leader>y', function() M.yank 'qi"+y' end, desc = 'qiy', mode = { 'n', }, silent = true, },
+-- }
 
 lazy_map {
-  { 'vw',                         function() M.yank 'viw' end,   desc = 'viw',   mode = { 'n', }, silent = true, },
-  { 'v<leader>w',                 function() M.yank 'viW' end,   desc = 'viW',   mode = { 'n', }, silent = true, },
-  { 'yw',                         function() M.yank 'yiw' end,   desc = 'yiw',   mode = { 'n', }, silent = true, },
-  { 'y<leader>w',                 function() M.yank 'yiW' end,   desc = 'yiW',   mode = { 'n', }, silent = true, },
-  { 'y<leader><leader>w',         function() M.yank '"+yiw' end, desc = '"+yiw', mode = { 'n', }, silent = true, },
-  { 'y<leader><leader><leader>w', function() M.yank '"+yiW' end, desc = '"+yiW', mode = { 'n', }, silent = true, },
+  { 'vw',         function() M.yank 'viw' end,   desc = 'viw',   mode = { 'n', }, silent = true, },
+  { 'v<leader>w', function() M.yank 'viW' end,   desc = 'viW',   mode = { 'n', }, silent = true, },
+  { 'yw',         function() M.yank 'yiw' end,   desc = 'yiw',   mode = { 'n', }, silent = true, },
+  { 'y<leader>w', function() M.yank 'yiW' end,   desc = 'yiW',   mode = { 'n', }, silent = true, },
+  { 'y<cr>w',     function() M.yank '"+yiw' end, desc = '"+yiw', mode = { 'n', }, silent = true, },
+  { 'y<cr><cr>w', function() M.yank '"+yiW' end, desc = '"+yiW', mode = { 'n', }, silent = true, },
 }
 
 -- 只保留第二列数据
