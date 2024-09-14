@@ -52,11 +52,13 @@ end
 
 lazy_map {
   -- { 'q',  '<cmd>WhichKey q<cr>',                                                 mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
-  { 'q',     '<nop>',                                                               mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
-  { '<cr>e', '<cmd>e!<cr>',                                                         mode = { 'n', 'v', }, silent = true, desc = 'e!', },
-  { '<cr>c', function() vim.cmd 'silent !explorer "%:p:h"' end,                     mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
-  { '<cr>w', function() vim.cmd('silent !explorer "' .. vim.loop.cwd() .. '"') end, mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
-  { '<cr>s', function() vim.cmd 'silent !start "" "%:p"' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:h', },
+  { 'q',     '<nop>',                                                                   mode = { 'n', 'v', }, silent = true, desc = '<nop>', },
+  { '<cr>e', '<cmd>e!<cr>',                                                             mode = { 'n', 'v', }, silent = true, desc = 'e!', },
+  { '<cr>c', function() vim.cmd 'silent !explorer "%:p:h"' end,                         mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
+  { '<cr>w', function() vim.cmd('silent !explorer "' .. vim.loop.cwd() .. '"') end,     mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
+  { '<cr>s', function() vim.cmd 'silent !start "" "%:p"' end,                           mode = { 'n', 'v', }, silent = true, desc = 'start %:h', },
+  { '<cr>d', function() vim.cmd 'silent !start /d "%:p" cmd' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:p cmd', },
+  { '<cr>f', function() vim.cmd('silent !start /d "' .. vim.loop.cwd() .. '" cmd') end, mode = { 'n', 'v', }, silent = true, desc = 'start cwd cmd', },
 }
 
 -- lazy_map {
