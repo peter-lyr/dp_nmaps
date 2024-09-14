@@ -57,7 +57,7 @@ lazy_map {
   { '<cr>c', function() vim.cmd 'silent !explorer "%:p:h"' end,                         mode = { 'n', 'v', }, silent = true, desc = 'explorer %:h', },
   { '<cr>w', function() vim.cmd('silent !explorer "' .. vim.loop.cwd() .. '"') end,     mode = { 'n', 'v', }, silent = true, desc = 'explorer cwd', },
   { '<cr>s', function() vim.cmd 'silent !start "" "%:p"' end,                           mode = { 'n', 'v', }, silent = true, desc = 'start %:h', },
-  { '<cr>d', function() vim.cmd 'silent !start /d "%:p" cmd' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:p cmd', },
+  { '<cr>d', function() vim.cmd 'silent !start /d "%:h" cmd' end,                       mode = { 'n', 'v', }, silent = true, desc = 'start %:h cmd', },
   { '<cr>f', function() vim.cmd('silent !start /d "' .. vim.loop.cwd() .. '" cmd') end, mode = { 'n', 'v', }, silent = true, desc = 'start cwd cmd', },
 }
 
